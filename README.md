@@ -7,7 +7,7 @@ You must have Python 3.8+ and the necessary libraries installed (`numpy`, `panda
 
 ### 1\. Data Setup
 
-Download the competition dataset and place all required files into a folder named `data/` at the root of the project directory.
+Download the dataset and place all required files into a folder named `data/` at the root of the project directory.
 
 The final folder structure should look like this:
 
@@ -44,7 +44,7 @@ python convert_embeddings.py
 
 #### Step 2b: Data Augmentation (Negative Sampling / MixUp)
 
-This is the core solution to the imbalance problem. This script generates synthetic training samples using a custom MixUp strategy (based on your internal logic: Case A and Case B) to create hard negatives and fill sparse score regions.
+This is the solution to the imbalance problem. This script generates synthetic training samples using negative sampling.
 
 ```bash
 python generate_dataset.py
@@ -59,7 +59,7 @@ python generate_dataset.py
 
 #### Step 2c: Train Model and Predict
 
-This final step loads the full augmented dataset, trains the highly regularized XGBoost Regressor, and generates the final prediction file for submission.
+This final step loads the full augmented dataset, trains the XGBoost Regressor, and generates the final prediction file for submission.
 
 ```bash
 python model_run.py
